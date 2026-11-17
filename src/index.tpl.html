@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Military Skill Groups</title>
+<meta name="description" content="US military skill groups ranked by headcount, with job codes for every branch and a full paygrade breakdown. Built from the DoD FY23 Population Representation report.">
+<meta name="theme-color" content="#1b2316">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Military skill groups by headcount">
+<meta property="og:description" content="Every enlisted and officer skill group in the US armed forces, ranked by people, with job codes for each branch and a full paygrade breakdown.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b2316'/%3E%3Cpath fill='%23dcb457' d='M16 5l3.1 7.3 7.9.7-6 5.2 1.8 7.8L16 21.9 9.2 26l1.8-7.8-6-5.2 7.9-.7z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Saira+Stencil+One&display=swap">
+__STYLE__
+</head>
+<body>
+<div class="strip"><div class="wrap strip-in">
+  <span class="st"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg>FY23 force snapshot</span>
+  <span class="dim">Public data</span>
+  <span class="dim">Unofficial analysis</span>
+  <button class="tm" id="tm" type="button" aria-label="Switch between night and day display"></button>
+</div></div>
+<div class="wrap"><main class="page">
+  <header class="hero">
+    <i class="cb tl"></i><i class="cb tr"></i><i class="cb bl"></i><i class="cb br"></i>
+    __TOPO__
+    <div class="eyebrow">DoD Population Representation report</div>
+    <h1>Military skill groups by headcount</h1>
+    <p class="lede" id="lede"></p>
+    <div class="total" aria-label="Totals">
+      <div class="hl">Total personnel</div>
+      <div class="hv" id="hv"></div>
+      <div class="hs" id="hs"></div>
+      <div class="sb" id="sb" role="img" aria-label="Headcount split by the selected color grouping"></div>
+      <div class="scale" aria-hidden="true"><span>0</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+      <div class="leg" id="leg"></div>
+      <p class="hsrc">Source: <span data-src="pop"></span>, <span data-src="b"></span> and <span data-src="c"></span>.</p>
+    </div>
+  </header>
+  <section class="ctl" aria-label="Filters">
+    <div class="cr"><span class="cl">Branch</span>
+      <div class="seg" id="bb">
+        <button data-k="ALL">All branches</button>
+        <button data-k="Army"><span class="dt"></span>Army</button>
+        <button data-k="Navy"><span class="dt"></span>Navy</button>
+        <button data-k="Marines"><span class="dt"></span>Marine Corps</button>
+        <button data-k="AF"><span class="dt"></span>Air Force</button>
+        <button data-k="SF"><span class="dt"></span>Space Force</button>
+      </div></div>
+    <div class="cr"><span class="cl">Component</span>
+      <div class="seg" id="cb">
+        <button data-k="ALL">All components</button>
+        <button data-k="act"><span class="dt"></span>Active duty</button>
+        <button data-k="grd"><span class="dt"></span>National Guard</button>
+        <button data-k="res"><span class="dt"></span>Reserve</button>
+      </div></div>
+    <div class="cr"><span class="cl">Color by</span>
+      <div class="seg" id="mb">
+        <button data-k="rank">Enlisted / officer</button>
+        <button data-k="comp">Component</button>
+        <button data-k="branch">Branch</button>
+      </div></div>
+  </section>
+  <section aria-label="Rank structure" id="gr"></section>
+  <section aria-label="Skill groups">
+    <div class="sh"><span class="shl">Skill groups</span><span class="rule"></span><span class="shs" id="gsrc"></span></div>
+    <div class="tools">
+      <label class="sbx"><span class="sr">Search codes and titles</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Find a code or job title, such as 11B or welder" autocomplete="off"></label>
+      <button class="ea" id="ea" type="button"></button>
+    </div>
+    <div class="list" id="rows"></div>
+  </section>
+  <section aria-label="Methods and caveats">
+    <div class="sh"><span class="shl">Methods and caveats</span><span class="rule"></span></div>
+    <div class="notes" id="notes"></div>
+  </section>
+  <section id="sources" aria-label="Sources">
+    <div class="sh"><span class="shl">Sources</span><span class="rule"></span><span class="shs">Every figure and code list on this page</span></div>
+    <div class="srcgrid" id="srcgrid"></div>
+  </section>
+  <footer class="foot"><span>Independent analysis of public data. Not affiliated with or endorsed by the Department of Defense or any military service.</span><span>Page updated Nov. 16, 2026</span></footer>
+</main></div>
+__SCRIPT__
+</body>
+</html>
